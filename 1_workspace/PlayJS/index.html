@@ -10,11 +10,19 @@
   <div id="display">ここに何かが表示される</div>
   <button id="button">クリック！</button>
   <script>
-    const display = document.getElementById("display")
-    const button = document.getElementById("button")
-    button.onclick = function() {
-      display.textContent = "クリックされた！！"
-    }
+  const display = document.getElementById("display")
+  const button = document.getElementById("button")
+  let count = 0
+
+  button.onclick = function() {
+    count += 1
+    display.textContent = count
+    display.style.color = "red"
+
+    console.dir(display)
+  }
+
+
   </script>
 </body>
 </html>
