@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue tutorial</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="memo" />
+      <button class="inbutton" v-on:click="addMemo">入力</button>
+      <div v-for="m in array">
+        <!-- ここにチェックボックスをいれる -->
+        <input type="checkbox" v-model="m.isDone" />
+        {{ m.text }}
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          memo: "",
+          array: [
+            {
+              text: "1",
+              isDone: true,
+            },
+            {
+              text: "2",
+              isDone: false,
+            },
+            {
+              text: "3",
+              isDone: false,
+            },
+            {
+              text: "4",
+              isDone: false,
+            },
+          ],
+          isDone: false,
+        },
+        methods: {
+          addMemo: function() {
+            const obj = { text: this.memo, isDone: false }
+            this.array.push(obj)
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
